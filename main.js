@@ -57,11 +57,6 @@ function writeState(event) {
     return 1;
   }
   count ++;
-  if (player == 0) {
-    placeElement(findId);
-    player = 1;
-  } else {
-    placeElement(findId);
-    player = 0;
-  }
+  player = (player == 0 ?  1 : 0);
+  placeElement(findId);
 }
