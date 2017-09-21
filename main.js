@@ -17,6 +17,8 @@ window.onload = function() {
 
 function restart() {
   $(".field").children("div").html("");
+  $("#result").text(" ");
+    $("#myTextArea").val('');
   mas = [null, null, null, null, null, null, null, null, null];
   isFinished = false;
   count = 0;
@@ -28,7 +30,7 @@ function isWinner() {
     if (mas[elementMas[0]] == mas[elementMas[1]]) {
       if (mas[elementMas[1]] == mas[elementMas[2]]) {
         if (mas[elementMas[0]] != null) {
-          alert("Win is " + stroke[player]);
+         $("#result").text("WINS "+ stroke[player]);
           isFinished = true;
           count = 0;
           return true;
@@ -37,7 +39,7 @@ function isWinner() {
     }
   });
   if(count == 9){
-    alert("Вилочки вологодские");
+ $("#result").text("DRAW");
     isFinished = true;
     count = 0;
     return true;
@@ -53,10 +55,14 @@ function placeElement(findId) {
 
 function writeState(event) {
   var findId = event.target.id;
+  var log = [];
   if (mas[findId] != null || isFinished) {
     return 1;
   }
   count ++;
   player = (player == 0 ?  1 : 0);
   placeElement(findId);
+  log += "Игрок " + player + " сделал ход";
+  console.log(log);
+  $("#myTextArea").val(log);
 }

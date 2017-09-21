@@ -4,7 +4,7 @@
   background-color: white;
 }
 
-.field > div {
+.field>div {
   width: 100px;
   height: 100px;
   cursor: pointer;
@@ -13,7 +13,7 @@
   font-size: 25px;
   line-height: 94px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, .3),
-   0 1px 0px rgba(0, 0, 0, .3),
+  0 1px 0px rgba(0, 0, 0, .3),
    0 1px 20px rgba(0, 0, 0, .3),
    0 1px 0px rgba(0, 0, 0, .3) inset;
 }
@@ -31,8 +31,7 @@
   font-weight: bold;
   color: #000000;
   background-color: #f5f5f5;
-  box-shadow: 4px -2px 12px #bababa,
-  inset 0px 0px 1px #ffffff;
+  box-shadow: 4px -2px 12px #bababa, inset 0px 0px 1px #ffffff;
 }
 
 .button:hover {
@@ -42,8 +41,7 @@
   font-weight: bold;
   color: #000000;
   background-color: #f5f5f5;
-  box-shadow: 0px 0px 2px #bababa,
-  inset 0px 0px 1px #ffffff;
+  box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
 }
 
 .button:active {
@@ -53,6 +51,17 @@
   font-weight: bold;
   color: #E5FFFF;
   background-color: #3BA4C7;
-  box-shadow: 0px 0px 2px #bababa,
-   inset 0px 0px 1px #ffffff;
+  box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+}
+#myTextArea{
+  width: 100px;
+  height: 100px;
+}
+
+#result {
+  color: red;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin: 0 -40px;
 }
