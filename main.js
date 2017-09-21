@@ -4,6 +4,7 @@ var mas = [null, null, null, null, null, null, null, null, null];
 var winnerMas = ['012', '345', '678', '036', '147', '258', '048', '246'];
 var isFinished = false;
 var count = 0;
+var countX = 0, countY = 0;
 var log = [];
 
 window.onload = function() {
@@ -36,6 +37,7 @@ function isWinner() {
       if (mas[elementMas[1]] == mas[elementMas[2]]) {
         if (mas[elementMas[0]] != null) {
           $("#result").text("WINS " + stroke[player]);
+          counterWin();
           isFinished = true;
           count = 0;
           return true;
@@ -50,6 +52,16 @@ function isWinner() {
     return true;
   }
   return false;
+}
+
+function counterWin() {
+  if (player === 0) {
+    countX++;
+    $("#player-one-score").text(countX);
+  } else {
+    countY++;
+    $("#player-two-score").text(countY);
+  }
 }
 
 function placeElement(findId) {

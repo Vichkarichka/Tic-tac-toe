@@ -1,6 +1,9 @@
 .field {
   width: 306px;
-  margin: 0 auto;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin: 0 -150px;
   background-color: white;
 }
 
@@ -17,9 +20,9 @@
 
 .button {
   position: absolute;
-  top: 50%;
+  top: 2%;
   left: 50%;
-  margin: 0 -73px;
+  margin: 0 -81px;
   text-decoration: none;
   text-align: center;
   padding: 11px 32px;
@@ -51,10 +54,26 @@
   box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
 }
 
+.countWin {
+  display: inline-block;
+  position: absolute;
+  margin: 0 -105px;
+  left: 50%;
+  top: 12%;
+}
+
+.countWin>p {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  font: 19px Arial, Helvetica, sans-serif;
+  color: #000000;
+}
+
 #myTextArea {
   position: absolute;
-  margin: 0 +85px;
-  left: 0;
+  margin: 0 -380px;
+  left: 50%;
+  top:30%;
   width: 170px;
   height: 200px;
   resize: none;
@@ -67,7 +86,7 @@
 #result {
   color: red;
   position: absolute;
-  top: 60%;
+  top: 80%;
   left: 50%;
-  margin: 0 -40px;
+  margin: 0 -55px;
 }
