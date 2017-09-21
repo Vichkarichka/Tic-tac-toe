@@ -4,7 +4,8 @@ var mas = [null, null, null, null, null, null, null, null, null];
 var winnerMas = ['012', '345', '678', '036', '147', '258', '048', '246'];
 var isFinished = false;
 var count = 0;
-var countX = 0, countY = 0;
+var countX = 0,
+  countY = 0;
 var log = [];
 
 window.onload = function() {
@@ -12,9 +13,25 @@ window.onload = function() {
     function(event) {
       writeState(event)
     });
-  $(".button").click(function() {
+  $("#newGame").click(function() {
+    restartfull();
+  });
+  $("#return").click(function() {
     restart();
   });
+  log = ["Игра началась\n"];
+  $("#myTextArea").val(log);
+}
+
+function restartfull() {
+  $(".field").children("div").html("");
+  $("#result").text(" ");
+  $("#myTextArea").val('');
+  $("#player-one-score").text("0");
+  $("#player-two-score").text("0");
+  mas = [null, null, null, null, null, null, null, null, null];
+  isFinished = false;
+  count = 0;
   log = ["Игра началась\n"];
   $("#myTextArea").val(log);
 }
