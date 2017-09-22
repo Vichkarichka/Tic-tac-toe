@@ -11,7 +11,12 @@ var log = [];
 window.onload = function() {
   $(".field").children("div").click(
     function(event) {
-      writeState(event)
+      if ($('#checkbox1').prop("checked")) {
+        writeState(event)
+      }
+      if ($('#checkbox2').prop("checked")) {
+        aiState(event);
+      }
     });
   $("#newGame").click(function() {
     restartfull();
@@ -19,21 +24,37 @@ window.onload = function() {
   $("#return").click(function() {
     restart();
   });
+  checkPPorPC();
   log = ["Игра началась\n"];
   $("#myTextArea").val(log);
 }
 
+function checkPPorPC() {
+  $('#checkbox1').change(function() {
+    if ($(this).prop("checked")) {
+      $("#checkbox2").prop("disabled", true);
+      $("#checkbox2 + label > span").addClass("disabled");
+    } else {
+      $("#checkbox2").prop("disabled", false);
+      $("#checkbox2 + label > span").removeClass("disabled");
+    }
+  });
+
+  $('#checkbox2').change(function() {
+    if ($(this).prop("checked")) {
+      $("#checkbox1").prop("disabled", true);
+      $("#checkbox1 + label > span").addClass("disabled");
+    } else {
+      $("#checkbox1").prop("disabled", false);
+      $("#checkbox1 + label > span").removeClass("disabled");
+    }
+  });
+}
+
 function restartfull() {
-  $(".field").children("div").html("");
-  $("#result").text(" ");
-  $("#myTextArea").val('');
+  restart();
   $("#player-one-score").text("0");
   $("#player-two-score").text("0");
-  mas = [null, null, null, null, null, null, null, null, null];
-  isFinished = false;
-  count = 0;
-  log = ["Игра началась\n"];
-  $("#myTextArea").val(log);
 }
 
 function restart() {
@@ -84,6 +105,7 @@ function counterWin() {
 function placeElement(findId) {
   $("#" + findId).text(stroke[player]);
   mas[findId] = stroke[player];
+  console.log(mas[findId]);
   isWinner();
 }
 
@@ -96,6 +118,8 @@ function writeState(event) {
   player = (player == 0 ? 1 : 0);
   placeElement(findId);
   log += "Игрок " + player + " сделал ход\n";
-  console.log(log);
   $("#myTextArea").val(log);
+}
+function aiState(event){
+
 }

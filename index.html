@@ -19,15 +19,28 @@
     <div id="7"></div>
     <div id="8"></div>
   </div>
-  <a href="#" class="button" id = "newGame"/>New Game</a>
-  <a href="#" class="button" id = "return" />Return</a>
+  <a href="#" class="button" id="newGame" />New Game</a>
+  <a href="#" class="button" id="return" />Return</a>
   <h1 id="result"></h1>
   <textarea id="myTextArea" wrap="hard" disabled></textarea>
-  <div class = "countWin">
+  <div class="countWin">
     <p id="player-one-score" class="score-value">0</p>
     <p id="player-one-name" class="score-player-name">Player 1</p>
     <p id="player-two-score" class="score-value">0</p>
     <p id="player-two-name" class="score-player-name">Player 2</p>
+  </div>
+  <div class="checkXorO">
+    <input type="checkbox" class="hidden-box" id="checkbox1" />
+    <label for="checkbox1" class="check--label">
+  <span class="check--label-box"></span>
+  <span class="check--label-text">Two player</span>
+</label>
+    <input type="checkbox" class="hidden-box" id="checkbox2" />
+    <label for="checkbox2" class="check--label">
+  <span class="check--label-box"></span>
+  <span class="check--label-text">Player and AI</span>
+</label>
+
   </div>
 
 </body>
