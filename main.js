@@ -7,6 +7,7 @@ var count = 0;
 var countX = 0,
   countY = 0;
 var log = [];
+var matchCount = 0;
 
 window.onload = function() {
   $(".field").children("div").click(
@@ -105,7 +106,6 @@ function counterWin() {
 function placeElement(findId) {
   $("#" + findId).text(stroke[player]);
   mas[findId] = stroke[player];
-  console.log(mas[findId]);
   isWinner();
 }
 
@@ -120,6 +120,51 @@ function writeState(event) {
   log += "Игрок " + player + " сделал ход\n";
   $("#myTextArea").val(log);
 }
-function aiState(event){
 
+function aiState(event) {
+  var findId = event.target.id;
+  if (mas[findId] != null || isFinished) {
+    return 1;
+  }
+  if (player == 0) {
+    placeElement(findId);
+    insertItem();
+  }
+  log += "Игрок " + player + " сделал ход\n";
+  $("#myTextArea").val(log);
+}
+
+function insertItem() {
+  var masMatch = [0, 0, 0, 0, 0, 0, 0, 0];
+  winnerMas.forEach(function(item, temp, arr) {
+    var elementMas = item.split("");
+    for (var i = 0; i < elementMas.length; i++) {
+      if (mas[elementMas[i]] === "x") {
+        matchCount++;
+        masMatch[temp] = matchCount;
+      }
+      if (mas[elementMas[i]] === "о") {
+        masMatch[temp] = -1;
+        break;
+      }
+    }
+    matchCount = 0;
+  });
+  var max = 0;
+  var index = 0;
+  for (var j = 0; j < masMatch.length; j++) {
+    if (max < masMatch[j]) {
+      max = masMatch[j];
+      index = j;
+    }
+  }
+  var str = winnerMas[index];
+  for (var x = 0; x < str.length; x++) {
+    if (mas[str[x]] === null) {
+      $("#" + str[x]).text("о");
+      mas[str[x]] = "о";
+      break;
+    }
+  }
+    isWinner();
 }
